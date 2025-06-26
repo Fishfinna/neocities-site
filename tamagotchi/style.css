@@ -1,0 +1,20 @@
+:root {
+    --background-color: #f9edf0;
+    --background-container: #e6d6dd;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.tomogachi-container {
+    background-color: var(--background-container);
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    image-rendering: pixelated;
+}
