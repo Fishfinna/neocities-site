@@ -1,0 +1,12 @@
+.site-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    button {
+        max-width: min(200px, 75vw);
+        min-width: 100px;
+    }
+}
