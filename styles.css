@@ -3,10 +3,31 @@ main {
     flex-direction: column;
 }
 
-.pixel-me {
-    max-width: min(200px, 15vw);
+.hoi {
     align-self: center;
+    width: 60%;
+    display: flex;
+    background-color: #242424;
+    border-radius: 10px;
+    margin: 20px;
+
+    p {
+        margin: 0;
+        background-color: #393a39a5;
+        padding: 25px;
+        border-radius: 20px;
+        height: fit-content;
+        margin: 20px;
+
+    }
+
+    .pixel-me {
+        max-width: min(100px, 15vw);
+        align-self: end;
+        margin-bottom: -20px;
+    }
 }
+
 
 .site-links {
     flex: 1;
