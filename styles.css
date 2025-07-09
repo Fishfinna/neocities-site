@@ -10,6 +10,7 @@ main {
     background-color: #242424;
     border-radius: 10px;
     margin: 20px;
+    color: white;
 
     p {
         margin: 0;
