@@ -13,8 +13,19 @@ body {
     margin: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    button {
+        width: 100px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 img {
+    width: 300px;
     image-rendering: pixelated;
 }
