@@ -3,6 +3,14 @@ main {
     flex-direction: column;
 }
 
+button {
+    cursor: pointer;
+    border: none;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+}
+
 .hoi {
     align-self: center;
     width: 60%;
