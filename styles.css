@@ -9,7 +9,25 @@ button {
     padding: 20px;
     width: 200px;
     border-radius: 10px;
+    background-color: #f7c5d4;
+    transition: all 0.2s;
+    color: rgb(254, 254, 255);
+    font-weight: bold;
+    font-size: 1.1em;
+
+    &:hover {
+        background-color: #c9859a;
+    }
+
+    &:nth-child(odd):hover {
+        transform: rotate(20deg);
+    }
+
+    &:nth-child(even):hover {
+        transform: rotate(-20deg);
+    }
 }
+
 
 .hoi {
     align-self: center;
@@ -44,7 +62,16 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    width: fit-content;
+    padding: 40px;
+    align-self: center;
+
+    box-shadow:
+        0 0 0 2px white,
+        0 0 0 4px rgb(185, 218, 251),
+        0 0 0 6px white,
+        0 0 0 7px rgb(185, 218, 251);
 
     button {
         max-width: min(200px, 75vw);
