@@ -1,3 +1,20 @@
+:root {
+    --font-size-base: 1.1em;
+    --font-weight-bold: bold;
+    --font-color: rgb(254, 254, 255);
+
+    --button-bg: #f7c5d4;
+    --button-hover-bg: #c9859a;
+
+    --container-bg: #242424;
+    --paragraph-bg: #393a39a5;
+
+    --text-color: white;
+
+    --box-shadow-white: white;
+    --box-shadow-blue: rgb(185, 218, 251);
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -9,14 +26,14 @@ button {
     padding: 20px;
     width: 200px;
     border-radius: 10px;
-    background-color: #f7c5d4;
+    background-color: var(--button-bg);
     transition: all 0.2s;
-    color: rgb(254, 254, 255);
-    font-weight: bold;
-    font-size: 1.1em;
+    color: var(--font-color);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
 
     &:hover {
-        background-color: #c9859a;
+        background-color: var(--button-hover-bg);
     }
 
     &:nth-child(odd):hover {
@@ -28,24 +45,22 @@ button {
     }
 }
 
-
 .hoi {
     align-self: center;
     width: 60%;
     display: flex;
-    background-color: #242424;
+    background-color: var(--container-bg);
     border-radius: 10px;
     margin: 20px;
-    color: white;
+    color: var(--text-color);
 
     p {
         margin: 0;
-        background-color: #393a39a5;
+        background-color: var(--paragraph-bg);
         padding: 25px;
         border-radius: 20px;
         height: fit-content;
         margin: 20px;
-
     }
 
     .pixel-me {
@@ -54,7 +69,6 @@ button {
         margin-bottom: -20px;
     }
 }
-
 
 .site-links {
     flex: 1;
@@ -68,10 +82,10 @@ button {
     align-self: center;
 
     box-shadow:
-        0 0 0 2px white,
-        0 0 0 4px rgb(185, 218, 251),
-        0 0 0 6px white,
-        0 0 0 7px rgb(185, 218, 251);
+        0 0 0 2px var(--box-shadow-white),
+        0 0 0 4px var(--box-shadow-blue),
+        0 0 0 6px var(--box-shadow-white),
+        0 0 0 7px var(--box-shadow-blue);
 
     button {
         max-width: min(200px, 75vw);
