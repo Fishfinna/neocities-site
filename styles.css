@@ -2,15 +2,11 @@
     --font-size-base: 1.1em;
     --font-weight-bold: bold;
     --font-color: rgb(254, 254, 255);
-
     --button-bg: #f7c5d4;
     --button-hover-bg: #c9859a;
-
     --container-bg: #242424;
     --paragraph-bg: #393a39a5;
-
     --text-color: white;
-
     --box-shadow-white: white;
     --box-shadow-blue: rgb(185, 218, 251);
 }
