@@ -5,15 +5,23 @@
     --button-bg: #f7c5d4;
     --button-hover-bg: #c9859a;
     --container-bg: #c9859a;
-    --paragraph-bg: #393a39a5;
-    --text-color: white;
+    --paragraph-bg: #f9f9f9;
+    --text-color: #c9859a;
     --box-shadow-white: white;
     --box-shadow-blue: rgb(185, 218, 251);
+}
+
+
+@font-face {
+    font-family: "pix";
+    src: url("./assets/fonts/rainyhearts.ttf");
 }
 
 main {
     display: flex;
     flex-direction: column;
+    font-family: pix;
+    font-size: 1.3rem;
 }
 
 button {
@@ -67,7 +75,7 @@ button {
 }
 
 .site-links {
-    flex: 1;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
