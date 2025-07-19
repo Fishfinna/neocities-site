@@ -3,14 +3,13 @@
     --font-weight-bold: bold;
     --font-color: rgb(254, 254, 255);
     --button-bg: #f7c5d4;
-    --button-hover-bg: #c9859a;
+    --button-hover-bg: #e4dadd;
     --container-bg: #c9859a;
     --paragraph-bg: #f9f9f9;
     --text-color: #c9859a;
     --box-shadow-white: white;
     --box-shadow-blue: rgb(185, 218, 251);
 }
-
 
 @font-face {
     font-family: "pix";
@@ -22,19 +21,20 @@ main {
     flex-direction: column;
     font-family: pix;
     font-size: 1.3rem;
+    flex-wrap: wrap;
 }
 
 button {
     cursor: pointer;
     border: none;
     padding: 20px;
-    width: 200px;
     border-radius: 10px;
-    background-color: var(--button-bg);
+    background-color: var(--paragraph-bg);
     transition: all 0.2s;
-    color: var(--font-color);
+    color: var(--text-color);
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-base);
+    font-family: pix;
 
     &:hover {
         background-color: var(--button-hover-bg);
@@ -57,25 +57,32 @@ button {
     border-radius: 10px;
     margin: 20px;
     color: var(--text-color);
+    flex-wrap: wrap;
+    padding: 20px;
+}
 
-    p {
-        margin: 0;
-        background-color: var(--paragraph-bg);
-        padding: 25px;
-        border-radius: 20px;
-        height: fit-content;
-        margin: 20px;
-    }
+.hoi p {
+    margin: 0;
+    background-color: var(--paragraph-bg);
+    padding: 25px;
+    border-radius: 20px;
+    height: fit-content;
+    margin: 20px;
+}
 
-    .pixel-me {
-        max-width: min(100px, 15vw);
-        align-self: end;
-        margin-bottom: -20px;
-    }
+.hoi .pixel-me {
+    max-width: min(100px, 15vw);
+    align-self: end;
+    margin-bottom: -80px;
+}
+
+.me {
+    display: flex;
+    flex-direction: row;
 }
 
 .site-links {
-
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,15 +91,11 @@ button {
     width: fit-content;
     padding: 40px;
     align-self: center;
+}
 
-    box-shadow:
-        0 0 0 2px var(--box-shadow-white),
-        0 0 0 4px var(--box-shadow-blue),
-        0 0 0 6px var(--box-shadow-white),
-        0 0 0 7px var(--box-shadow-blue);
-
-    button {
-        max-width: min(200px, 75vw);
-        min-width: 100px;
-    }
+.site-links button {
+    display: block;
+    max-width: min(200px, 75vw);
+    min-width: 100px;
+    width: 100%;
 }
