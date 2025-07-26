@@ -9,6 +9,7 @@
     --text-color: #c9859a;
     --box-shadow-white: white;
     --box-shadow-blue: rgb(185, 218, 251);
+    --shadow: rgba(53, 33, 55, 0.316);
 }
 
 @font-face {
@@ -16,12 +17,22 @@
     src: url("./assets/fonts/rainyhearts.ttf");
 }
 
+body {
+    padding: 0;
+    margin: 0;
+}
+
 main {
     display: flex;
     flex-direction: column;
     font-family: pix;
     font-size: 1.3rem;
+    width: 100%;
+    height: 100vh;
     flex-wrap: wrap;
+    background-image: url("./assets/art/background.png");
+    background-repeat: repeat;
+    background-size: 130px;
 }
 
 .hoi {
@@ -30,7 +41,7 @@ main {
     display: flex;
     background-color: var(--container-bg);
     border-radius: 10px;
-    margin: 20px;
+    margin-top: 10vh;
     color: var(--text-color);
     flex-wrap: wrap;
     padding: 20px;
@@ -56,6 +67,7 @@ main {
     border-radius: 20px;
     height: fit-content;
     margin: 20px;
+    box-shadow: 3px 3px 0px var(--shadow)
 }
 
 .hoi .pixel-me {
@@ -98,8 +110,12 @@ main {
     font-size: var(--font-size-base);
     font-family: pix;
 
+    box-shadow: 3px 3px 0px var(--shadow);
+
     &:hover {
         background-color: var(--button-hover-bg);
+        box-shadow: none;
+        outline: 1px solid var(--shadow);
     }
 
     &:nth-child(odd):hover {
