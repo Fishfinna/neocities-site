@@ -60,7 +60,7 @@ main {
     }
 }
 
-.hoi p {
+.hoi .me p {
     margin: 0;
     background-color: var(--paragraph-bg);
     padding: 25px;
@@ -158,6 +158,7 @@ div.unmute {
 }
 
 #click-unmute-info {
+    padding: 25px;
     background-color: transparent;
     color: var(--font-color);
     position: relative;
