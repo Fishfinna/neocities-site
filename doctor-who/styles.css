@@ -1,3 +1,23 @@
 html {
-    background-color: #6e9ddf;
+    background-color: #779fd8;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+#logo {
+    width: 10vw;
+}
+
+main {
+    margin-top: 10px;
+    width: 90%;
+    background-color: rgb(236, 238, 243);
+    padding: 20px;
+    border-radius: 5px;
 }
