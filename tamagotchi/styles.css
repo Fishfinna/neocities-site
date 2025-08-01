@@ -1,6 +1,14 @@
 :root {
     --background-color: #f9edf0;
     --background-container: #e6d6dd;
+    --screen-lighter: #8f8f8f;
+    --screen-lights: #50584b64;
+    --screen-darks: #2c2c2b;
+}
+
+@font-face {
+    font-family: "pix";
+    src: url("../../assets/fonts/rainyhearts.ttf");
 }
 
 body {
@@ -11,6 +19,7 @@ body {
     background-color: var(--background-container);
     border-radius: 20px;
     margin: 20px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +34,32 @@ body {
     }
 }
 
+#start {
+    position: absolute;
+    margin-top: 30px;
+    background-color: transparent;
+    font-family: pix;
+    font-weight: bold;
+    font-size: 40px;
+    border-color: var(--screen-lights);
+    color: var(--screen-lighter);
+    border-radius: 20px;
+    transform: rotate(10deg);
+
+    &:hover {
+        background-color: var(--screen-darks);
+    }
+}
+
 img {
-    width: 300px;
+    width: 600px;
     image-rendering: pixelated;
+}
+
+#canvas {
+    display: block;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 20px;
 }
