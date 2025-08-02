@@ -58,8 +58,9 @@ img {
 
 #canvas {
     display: block;
-    width: 150px;
-    height: 150px;
+    margin-top: 25px;
+    width: 160px;
+    height: 160px;
     position: absolute;
     border-radius: 20px;
 }
