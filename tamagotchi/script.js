@@ -17,9 +17,9 @@ window.addEventListener("resize", resizeCanvas);
 // Creature state
 let creature = {
   x: 50,
-  y: 250,
+  y: 200,
   vx: 2,
-  width: 34,
+  width: 40,
   height: 34,
   bounceOffset: 1,
   facingRight: true,
