@@ -10,9 +10,22 @@
   <body>
     <button onClick="window.location = '/'">back</button>
     <div class="tomogachi-container">
-      <img src="/tamagotchi/art/exports/tomogachi-purple.png" />
+      <img
+        id="tomogachi-shell"
+        src="/tamagotchi/art/exports/tomogachi-purple.png"
+      />
       <canvas id="canvas"></canvas>
       <button dev="on" id="start">start</button>
+      <div class="tomogachi-buttons">
+        <button class="left-device-button">
+          <img
+            src="/tamagotchi/art/exports/buttons/button-L.png"
+            alt="left-device-button"
+          />
+        </button>
+        <button class="middle-device-button"></button>
+        <button class="right-device-button"></button>
+      </div>
     </div>
   </body>
 </html>
