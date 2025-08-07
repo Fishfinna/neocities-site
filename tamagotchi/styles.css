@@ -24,24 +24,52 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 
     .tomogachi-buttons {
         position: absolute;
-        left: -40px;
+        bottom: 145px;
 
-        buttons {
-            background-color: transparent;
+        button {
+            padding: 0;
             border: none;
+            background-color: transparent;
+            border-radius: 30px;
         }
 
         img {
-            background-color: red;
             border: none;
             image-rendering: pixelated;
+            width: 30px;
+
+            position: relative;
+            top: -6.5px;
+            margin: 3.5px;
+        }
+
+        .middle-device-button {
+            button {
+                height: 4px;
+                background-color: red;
+            }
+
+            img {
+                width: 50px;
+                top: 10px;
+                margin: 0;
+                position: static;
+            }
         }
 
         :hover {
             cursor: pointer;
+            filter: brightness(95%);
+        }
+
+        :active {
+            cursor: pointer;
+            filter: brightness(90%);
+            transform: scale(1.05);
         }
     }
 }
