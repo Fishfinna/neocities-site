@@ -72,18 +72,45 @@ function update(deltaTime) {
 }
 
 function drawCreature(x, y, scale = 3) {
-  ctx.fillStyle = creatureColorDark;
-  ctx.fillRect(x, y, creature.width * scale, creature.height * scale);
+  const mouthOpen = Math.abs(Math.sin(Date.now() / 200)) > 0.5; // nom cycle
 
+  ctx.save();
+  ctx.translate(x, y);
+  if (!creature.facingRight) {
+    ctx.scale(-1, 1); // flip horizontally
+    ctx.translate(-creature.width * scale, 0);
+  }
+
+  // === BODY ===
+  ctx.fillStyle = creatureColorDark;
+  ctx.fillRect(4 * scale, 10 * scale, 20 * scale, 14 * scale); // torso
+
+  // Tail
+  ctx.fillRect(0 * scale, 14 * scale, 4 * scale, 6 * scale);
+
+  // Legs
+  ctx.fillRect(6 * scale, 24 * scale, 4 * scale, 4 * scale);
+  ctx.fillRect(14 * scale, 24 * scale, 4 * scale, 4 * scale);
+
+  // === HEAD ===
+  ctx.fillRect(20 * scale, 6 * scale, 14 * scale, 12 * scale); // main head
+
+  // Jaw (dark when closed, lighter when open)
+  if (mouthOpen) {
+    ctx.fillRect(20 * scale, 14 * scale, 14 * scale, 6 * scale); // open mouth lower half
+    ctx.fillStyle = creatureColorLight;
+    ctx.fillRect(20 * scale, 14 * scale, 14 * scale, 2 * scale); // highlight teeth row
+  } else {
+    ctx.fillRect(20 * scale, 14 * scale, 14 * scale, 2 * scale); // closed line
+  }
+
+  // === EYE ===
   ctx.fillStyle = creatureColorLight;
-  let eyeOffsetX = creature.facingRight ? 6 : 2;
-  ctx.fillRect(x + eyeOffsetX * scale, y + 5 * scale, scale * 4, scale * 4);
-  ctx.fillRect(
-    x + (eyeOffsetX + 10) * scale,
-    y + 5 * scale,
-    scale * 4,
-    scale * 4
-  );
+  ctx.fillRect(30 * scale, 8 * scale, 2 * scale, 2 * scale); // white part
+  ctx.fillStyle = "#000";
+  ctx.fillRect(30 * scale, 8 * scale, scale, scale); // pupil
+
+  ctx.restore();
 }
 
 function draw() {
