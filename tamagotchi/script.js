@@ -107,7 +107,7 @@ function drawCreature(x, y, scale = 3) {
   // === EYE ===
   ctx.fillStyle = creatureColorLight;
   ctx.fillRect(30 * scale, 8 * scale, 2 * scale, 2 * scale); // white part
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "#373737ff";
   ctx.fillRect(30 * scale, 8 * scale, scale, scale); // pupil
 
   ctx.restore();
