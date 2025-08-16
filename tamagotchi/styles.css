@@ -1,6 +1,7 @@
 :root {
     --background-color: #f9edf0;
     --background-container: #e6d6dd;
+    --text: #7c6d74;
     --screen-lighter: #8f8f8f;
     --screen-lights: #50584b64;
     --screen-darks: #2c2c2b;
@@ -13,18 +14,28 @@
 
 body {
     background-color: var(--background-color);
+    color: var(--text);
+    font-family: pix;
+}
+
+button.back-button {
+    background-color: transparent;
+    border: none;
+    color: var(--text)
 }
 
 .tomogachi-container {
     background-color: var(--background-container);
     border-radius: 20px;
-    margin: 20px;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
+    width: 600px;
+    margin: auto;
+    margin-top: 50px;
 
     .tomogachi-buttons {
         position: absolute;
