@@ -1,23 +1,40 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const startButton = document.getElementById("start");
+window.addEventListener("load", () => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const deviceButtons = document.querySelectorAll('[class$="device-button"]');
+  const muted = false;
+  const noteSrc = "../assets/audio/effects/a.wav";
+  const audio = new Audio(noteSrc);
+  audio.volume = 0.25;
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth / 2;
-  canvas.height = window.innerHeight / 2;
-}
-window.addEventListener("resize", resizeCanvas);
+  function resizeCanvas() {
+    canvas.width = window.innerWidth / 2;
+    canvas.height = window.innerHeight / 2;
+  }
+  window.addEventListener("resize", resizeCanvas);
 
-const PAUSE_DURATION = 2000;
+  const PAUSE_DURATION = 2000;
 
-startButton.addEventListener("click", () => {
-  canvas.classList.add("active");
-  startButton.style.display = "none";
+  startButton.addEventListener("click", () => {
+    canvas.classList.add("active");
+    startButton.style.display = "none";
 
-  resizeCanvas();
-  registerCreatureClickHandler();
-  requestAnimationFrame(loop);
+    resizeCanvas();
+    registerCreatureClickHandler();
+    requestAnimationFrame(loop);
+  });
+
+  deviceButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!muted)
+        audio.play().catch((err) => {
+          console.error("Audio play failed:", err);
+        });
+    });
+  });
 });
+
+const startButton = document.getElementById("start");
 
 function startGame() {
   canvas.classList.add("active");
