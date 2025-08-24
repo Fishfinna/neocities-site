@@ -6,7 +6,6 @@
         margin: -10;
         background-color: white;
         border: 1px solid gray;
-        box-shadow: 10px 10px 0px gray;
         height: 200px;
         width: 30px;
 
@@ -15,5 +14,9 @@
             color: white;
         }
 
+        &:hover {
+            filter: brightness(0.9);
+            cursor: pointer;
+        }
     }
 }
