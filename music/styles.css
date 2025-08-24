@@ -1,0 +1,19 @@
+.midi {
+    display: flex;
+    gap: -10;
+
+    button {
+        margin: -10;
+        background-color: white;
+        border: 1px solid gray;
+        box-shadow: 10px 10px 0px gray;
+        height: 200px;
+        width: 30px;
+
+        &[class$="-sharp"] {
+            background: black;
+            color: white;
+        }
+
+    }
+}
