@@ -1,22 +1,62 @@
+:root {
+    --color-bg-gradient-start: #ffe6f7;
+    --color-bg-gradient-end: #e6f7ff;
+    --color-heading: #ff69b4;
+    --color-heading-shadow: rgba(255, 105, 180, 0.3);
+    --color-white: #ffffff;
+    --color-text: #d5d5d5;
+    --color-key-shadow: rgba(0, 0, 0, 0.182);
+    --color-black-key: #333333;
+    --color-key-active: #ffd1e8;
+    --color-black-key-active: #555555;
+}
+
+
 .midi {
     display: flex;
-    gap: -10;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    justify-content: center;
 
-    button {
-        margin: -10;
-        background-color: white;
-        border: 1px solid gray;
-        height: 200px;
-        width: 30px;
+}
 
-        &[class$="-sharp"] {
-            background: black;
-            color: white;
-        }
+.piano-key {
+    border: none;
+    border-radius: 10px;
+    width: 40px;
+    height: 180px;
+    background: var(--color-white);
+    box-shadow: 0 4px 6px var(--color-key-shadow);
+    color: var(--color-text);
+    font-weight: bold;
+    transition: all 0.15s ease-in-out;
 
-        &:hover {
-            filter: brightness(0.9);
-            cursor: pointer;
-        }
-    }
+}
+
+.piano-key[class$="-sharp"] {
+    background: var(--color-black-key);
+    z-index: 1;
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 120px;
+    width: 30px;
+    position: relative;
+    top: 0;
+}
+
+.piano-key:hover {
+    filter: brightness(0.95);
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+.piano-key:active {
+    background: var(--color-key-active);
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 4px var(--color-key-shadow) inset;
+}
+
+.piano-key[class$="-sharp"]:active {
+    background: var(--color-black-key-active);
 }
