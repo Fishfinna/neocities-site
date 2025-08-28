@@ -29,13 +29,11 @@ function attachKeyEvents(key) {
 document.addEventListener("mousedown", () => (isMouseDown = true));
 document.addEventListener("mouseup", () => (isMouseDown = false));
 
-// Original keys
 originalKeys.forEach((key) => {
   key.dataset.octave = 0;
   attachKeyEvents(key);
 });
 
-// Lower octave (skip first key to avoid duplicate “A”)
 for (let i = originalKeys.length - 1; i >= 0; i--) {
   const key = originalKeys[i];
   const clone = key.cloneNode(true);
@@ -44,7 +42,6 @@ for (let i = originalKeys.length - 1; i >= 0; i--) {
   attachKeyEvents(clone);
 }
 
-// Higher octave
 originalKeys.forEach((key) => {
   const clone = key.cloneNode(true);
   clone.dataset.octave = 1;
