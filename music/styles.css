@@ -11,6 +11,23 @@
     --color-black-key-active: #555555;
 }
 
+@font-face {
+    font-family: pix;
+    src: url("../assets/fonts/rainyhearts.ttf");
+}
+
+body {
+    text-align: center;
+    font-family: pix;
+}
+
+.cat-with-guitar-image {
+    display: block;
+    max-width: 200px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 30px;
+}
 
 .midi {
     display: flex;
@@ -18,7 +35,6 @@
     padding: 20px;
     border-radius: 20px;
     justify-content: center;
-
 }
 
 .piano-key {
