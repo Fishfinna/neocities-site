@@ -1,3 +1,4 @@
+// midi logic
 const midiContainer = document.querySelector(".midi");
 const originalKeys = Array.from(document.querySelectorAll(".piano-key"));
 let isMouseDown = false;
@@ -48,3 +49,11 @@ originalKeys.forEach((key) => {
   midiContainer.appendChild(clone);
   attachKeyEvents(clone);
 });
+
+
+// cat logic
+const cat = document.getElementById("cat-with-guitar-image");
+cat.addEventListener('click', () => {
+  console.log("clicked")
+  cat.style.animationName = cat.style.animationName == "catDance" ? "" : "catDance";
+})

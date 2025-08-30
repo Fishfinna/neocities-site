@@ -21,13 +21,26 @@ body {
     font-family: pix;
 }
 
-.cat-with-guitar-image {
+#cat-with-guitar-image {
     display: block;
     max-width: 200px;
     padding: 10px;
     margin: auto;
     border-radius: 30px;
+    /* animation-name: catDance; */
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
+
+@keyframes catDance {
+    0% {
+        transform: rotate(-10deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+  }
 
 .midi {
     display: flex;
