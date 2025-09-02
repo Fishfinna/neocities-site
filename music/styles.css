@@ -19,6 +19,15 @@
 body {
     text-align: center;
     font-family: pix;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-button  {
+    border-color: transparent;
+    background-color: transparent;
+    justify-self: start;
+    text-align: start;
 }
 
 #cat-with-guitar-image {
