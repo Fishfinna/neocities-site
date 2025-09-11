@@ -50,10 +50,21 @@ originalKeys.forEach((key) => {
   attachKeyEvents(clone);
 });
 
-
 // cat logic
 const cat = document.getElementById("cat-with-guitar-image");
-cat.addEventListener('click', () => {
-  console.log("clicked")
-  cat.style.animationName = cat.style.animationName == "catDance" ? "" : "catDance";
-})
+cat.addEventListener("click", () => {
+  console.log("clicked");
+  cat.style.animationName =
+    cat.style.animationName == "catDance" ? "" : "catDance";
+});
+
+// play logic
+const playButtons = document.querySelectorAll(
+  ".material-symbols-rounded.audio-toggle"
+);
+playButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.textContent =
+      btn.textContent.trim() === "play_arrow" ? "pause" : "play_arrow";
+  });
+});

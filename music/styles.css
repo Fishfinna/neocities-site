@@ -23,7 +23,7 @@ body {
     flex-direction: column;
 }
 
-.back-button  {
+.back-button {
     border-color: transparent;
     background-color: transparent;
     justify-self: start;
@@ -45,11 +45,12 @@ body {
 @keyframes catDance {
     0% {
         transform: rotate(-10deg);
-      }
-      100% {
+    }
+
+    100% {
         transform: rotate(0deg);
-      }
-  }
+    }
+}
 
 .midi {
     display: flex;
@@ -97,4 +98,8 @@ body {
 
 .piano-key[class$="-sharp"]:active {
     background: var(--color-black-key-active);
+}
+
+.audio-toggle {
+    cursor: pointer;
 }
