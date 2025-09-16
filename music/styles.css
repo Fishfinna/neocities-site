@@ -118,3 +118,24 @@ body {
 .audio-toggle {
     cursor: pointer;
 }
+
+.tracks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    >* {
+        width: 400px;
+    }
+
+    .info {
+        flex-basis: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        p {
+            width: 400px;
+            margin: 0 auto;
+        }
+    }
+}
