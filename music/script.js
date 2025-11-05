@@ -62,9 +62,16 @@ cat.addEventListener("click", () => {
 const playButtons = document.querySelectorAll(
   ".material-symbols-rounded.audio-toggle"
 );
-playButtons.forEach((btn) => {
+const audio = document.querySelectorAll("audio");
+
+playButtons.forEach((btn, index) => {
   btn.addEventListener("click", () => {
-    btn.textContent =
-      btn.textContent.trim() === "play_arrow" ? "pause" : "play_arrow";
+    const pauseText = "pause";
+    const playText = "play_arrow";
+    const buttonState = btn.textContent.trim();
+    const track = audio[index];
+
+    btn.textContent = buttonState === playText ? pauseText : playText;
+    buttonState === playText ? track.play() : track.pause();
   });
 });
