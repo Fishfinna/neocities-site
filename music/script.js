@@ -62,16 +62,50 @@ cat.addEventListener("click", () => {
 const playButtons = document.querySelectorAll(
   ".material-symbols-rounded.audio-toggle"
 );
-const audio = document.querySelectorAll("audio");
+const audioElements = document.querySelectorAll("audio");
+const timelines = document.querySelectorAll(".timeline");
+const currentTimes = document.querySelectorAll(".current-time");
+const totalTimes = document.querySelectorAll(".total-time");
 
-playButtons.forEach((btn, index) => {
+function formatTime(seconds) {
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
+audioElements.forEach((audio, i) => {
+  const btn = playButtons[i];
+  const timeline = timelines[i];
+  const currentTimeLabel = currentTimes[i];
+  const totalTimeLabel = totalTimes[i];
+
+  audio.addEventListener("loadedmetadata", () => {
+    timeline.max = audio.duration;
+    totalTimeLabel.textContent = formatTime(audio.duration);
+  });
+
+  // Update timeline as the audio plays
+  audio.addEventListener("timeupdate", () => {
+    timeline.value = audio.currentTime;
+    currentTimeLabel.textContent = formatTime(audio.currentTime);
+  });
+
+  // Seek when user drags timeline
+  timeline.addEventListener("input", () => {
+    audio.currentTime = timeline.value;
+    currentTimeLabel.textContent = formatTime(audio.currentTime);
+  });
+
+  // Play/pause button
   btn.addEventListener("click", () => {
-    const pauseText = "pause";
     const playText = "play_arrow";
-    const buttonState = btn.textContent.trim();
-    const track = audio[index];
-
-    btn.textContent = buttonState === playText ? pauseText : playText;
-    buttonState === playText ? track.play() : track.pause();
+    const pauseText = "pause";
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = pauseText;
+    } else {
+      audio.pause();
+      btn.textContent = playText;
+    }
   });
 });
