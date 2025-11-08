@@ -50,6 +50,12 @@ originalKeys.forEach((key) => {
   attachKeyEvents(clone);
 });
 
+const allKeys = Array.from(midiContainer.querySelectorAll(".piano-key"));
+const lastKey = allKeys[allKeys.length - 1];
+if (lastKey.className.includes("-sharp")) {
+  lastKey.remove();
+}
+
 // cat logic
 const cat = document.getElementById("cat-with-guitar-image");
 cat.addEventListener("click", () => {

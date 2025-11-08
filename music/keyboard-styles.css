@@ -1,0 +1,108 @@
+.midi {
+    align-self: center;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    min-width: fit-content;
+    padding: 25px;
+    background:
+        repeating-linear-gradient(0deg,
+            #3a3a3a 0,
+            #3a3a3a 3px,
+            #2f2f2f 2px,
+            #2f2f2f 6px);
+    box-shadow:
+        inset 0 4px 0 #555,
+        inset 0 -4px 0 #1a1a1a,
+        0 8px 0 #1a1a1a;
+    border: 2px solid #111;
+    image-rendering: pixelated;
+
+    @media (max-width: 1000px) {
+        transform: scale(0.7);
+        margin: -20px 0;
+    }
+
+    @media (max-width: 800px) {
+        transform: scale(0.5);
+        margin: -30px 0;
+    }
+
+    @media (max-width: 500px) {
+        transform: scale(0.4);
+        margin: -40px 0;
+    }
+}
+
+
+.piano-key {
+    position: relative;
+    border: 2px solid #444;
+    background: linear-gradient(to bottom, #ffffff 90%, #dcdcdc 100%);
+    box-shadow:
+        2px 2px 0 #222,
+        inset 0 -2px 0 #bcbcbc,
+        inset 0 2px 0 #ffffff;
+    color: var(--color-text);
+    font-weight: bold;
+    min-width: 35px;
+    height: 180px;
+    border-radius: 0;
+    transition: transform 0.1s ease, box-shadow 0.08s ease;
+    image-rendering: pixelated;
+}
+
+.piano-key::before {
+    content: "";
+    image-rendering: pixelated;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 20%;
+    background: #ffffff37;
+}
+
+.piano-key[class$="-sharp"] {
+    background: linear-gradient(to bottom, #444 85%, #222 100%);
+    border: 2px solid #000;
+    box-shadow:
+        2px 2px 0 #111,
+        inset 0 -2px 0 #333,
+        inset 0 2px 0 #666;
+    z-index: 1;
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 120px;
+    width: 30px;
+    position: relative;
+    top: 0;
+}
+
+.piano-key:hover {
+    box-shadow:
+        3px 3px 0 #222,
+        inset 0 -2px 0 #222,
+        inset 0 2px 0 #222;
+    cursor: pointer;
+}
+
+
+.piano-key:active {
+    transform: translate(1px, 1px);
+    box-shadow:
+        1px 1px 0 #111,
+        inset 0 2px 0 #999,
+        inset 0 -2px 0 #ccc;
+    background: linear-gradient(to bottom, var(--color-key-active) 85%, #eeb9d4 100%);
+}
+
+
+.piano-key[class$="-sharp"]:active {
+    background: linear-gradient(to bottom, #555 85%, #333 100%);
+    box-shadow:
+        1px 1px 0 #000,
+        inset 0 2px 0 #444,
+        inset 0 -2px 0 #666;
+}

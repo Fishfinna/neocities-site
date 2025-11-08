@@ -56,69 +56,6 @@ body {
     }
 }
 
-.midi {
-    display: flex;
-    gap: 10px;
-    padding: 20px;
-    border-radius: 20px;
-    justify-content: center;
-    max-width: 90%;
-
-    @media (max-width: 1000px) {
-        transform: scale(0.7);
-        margin: -50px 0;
-    }
-
-    @media (max-width: 800px) {
-        transform: scale(0.5);
-        margin: -50px 0;
-    }
-
-    @media (max-width: 500px) {
-        transform: scale(0.4);
-        margin: -50px 0;
-    }
-}
-
-.piano-key {
-    border: none;
-    border-radius: 10px;
-    min-width: 35px;
-    height: 180px;
-    background: var(--color-white);
-    box-shadow: 0 4px 6px var(--color-key-shadow);
-    color: var(--color-text);
-    font-weight: bold;
-    transition: all 0.15s ease-in-out;
-}
-
-.piano-key[class$="-sharp"] {
-    background: var(--color-black-key);
-    z-index: 1;
-    margin-left: -20px;
-    margin-right: -20px;
-    height: 120px;
-    width: 30px;
-    position: relative;
-    top: 0;
-}
-
-.piano-key:hover {
-    filter: brightness(0.95);
-    transform: translateY(-3px);
-    cursor: pointer;
-}
-
-.piano-key:active {
-    background: var(--color-key-active);
-    transform: translateY(2px) scale(0.98);
-    box-shadow: 0 2px 4px var(--color-key-shadow) inset;
-}
-
-.piano-key[class$="-sharp"]:active {
-    background: var(--color-black-key-active);
-}
-
 .audio-toggle {
     cursor: pointer;
 }
