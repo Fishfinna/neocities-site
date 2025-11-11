@@ -26,6 +26,25 @@ body {
     color: var(--color-text);
 }
 
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.timeline-container>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeline {
+    margin: 0 10px;
+    flex-grow: 1;
+}
+
+
 .back-button {
     border-color: transparent;
     background-color: transparent;
