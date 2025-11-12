@@ -114,4 +114,11 @@ audioElements.forEach((audio, i) => {
       btn.textContent = playText;
     }
   });
+
+  audio.addEventListener("ended", () => {
+    audio.currentTime = 0;
+    timeline.value = 0;
+    currentTimeLabel.textContent = formatTime(0);
+    btn.textContent = "play_arrow";
+  });
 });
