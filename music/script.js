@@ -3,6 +3,8 @@ const midiContainer = document.querySelector(".midi");
 const originalKeys = Array.from(document.querySelectorAll(".piano-key"));
 let isMouseDown = false;
 const context = new (window.AudioContext || window.webkitAudioContext)();
+const cat = document.getElementById("cat-with-guitar-image");
+let catRotation = 0;
 
 async function playNote(element) {
   const detune = parseInt(element.dataset.octave) || 0;
@@ -15,6 +17,15 @@ async function playNote(element) {
   const audioBuffer = await context.decodeAudioData(arrayBuffer);
   const source = context.createBufferSource();
   source.buffer = audioBuffer;
+  let step = 8;
+  if (detune > 0) {
+    catRotation += step;
+  } else if (detune < 0) {
+    catRotation -= step;
+  } else {
+    catRotation += step * 0.2;
+  }
+  cat.style.transform = `rotate(${catRotation}deg)`;
   source.detune.value = detune * 1200;
   source.connect(context.destination);
   source.start();
@@ -57,9 +68,7 @@ if (lastKey.className.includes("-sharp")) {
 }
 
 // cat logic
-const cat = document.getElementById("cat-with-guitar-image");
 cat.addEventListener("click", () => {
-  console.log("clicked");
   cat.style.animationName =
     cat.style.animationName == "catDance" ? "" : "catDance";
 });
