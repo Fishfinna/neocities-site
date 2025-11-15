@@ -57,14 +57,17 @@ body {
 
 #cat-with-guitar-image {
     display: block;
-    max-width: 200px;
-    padding: 10px;
+    max-width: 250px;
+    padding: 20px;
     margin: auto;
-    border-radius: 30px;
+    border-radius: 40px;
     /* animation-name: catDance; */
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    transform-style: preserve-3d;
+    transition: transform 0.1s linear;
+    perspective: 1000px;
 }
 
 @keyframes catDance {

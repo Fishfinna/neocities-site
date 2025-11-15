@@ -1,4 +1,5 @@
 .midi {
+    perspective: 1000px;
     align-self: center;
     display: flex;
     gap: 10px;

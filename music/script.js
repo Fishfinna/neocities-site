@@ -17,15 +17,12 @@ async function playNote(element) {
   const audioBuffer = await context.decodeAudioData(arrayBuffer);
   const source = context.createBufferSource();
   source.buffer = audioBuffer;
-  let step = 8;
-  if (detune > 0) {
-    catRotation += step;
-  } else if (detune < 0) {
-    catRotation -= step;
-  } else {
-    catRotation += step * 0.2;
-  }
-  cat.style.transform = `rotate(${catRotation}deg)`;
+  let step = 20;
+  catRotation += step;
+  cat.style.transform = `rotateY(${catRotation}deg) rotateX(${
+    catRotation * 0.3
+  }deg)`;
+
   source.detune.value = detune * 1200;
   source.connect(context.destination);
   source.start();
