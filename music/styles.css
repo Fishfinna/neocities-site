@@ -103,4 +103,9 @@ body {
             margin: 0 auto;
         }
     }
+
+    .track {
+        margin: 20px;
+        flex: 100%;
+    }
 }
