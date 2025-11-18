@@ -1,0 +1,107 @@
+:root {
+    --timeline-height: 8px;
+    --timeline-radius: 10px;
+    --timeline-track: #3e3e3e;
+    --timeline-track-hover: #4b4848;
+    --timeline-progress: #7d7d7d;
+    --timeline-thumb-size: 16px;
+    --timeline-thumb-color: #d9cabf;
+    --timeline-thumb-border: #666;
+    --timeline-thumb-hover: #e0e0e0;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.timeline-container>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeline {
+    margin: 0 10px;
+    flex-grow: 1;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: var(--timeline-height);
+    background: var(--timeline-track);
+    border-radius: var(--timeline-radius);
+    cursor: pointer;
+    outline: none;
+    transition: background 0.2s;
+
+    &:hover {
+        background: var(--timeline-track-hover);
+    }
+
+    &::-webkit-slider-runnable-track {
+        height: var(--timeline-height);
+        border-radius: var(--timeline-radius);
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: var(--timeline-thumb-size);
+        height: var(--timeline-thumb-size);
+        border-radius: 50%;
+        background: var(--timeline-thumb-color);
+        border: 2px solid var(--timeline-thumb-border);
+        cursor: pointer;
+        margin-top: calc((var(--timeline-height) / 2) - (var(--timeline-thumb-size) / 2));
+        transition: background 0.15s, transform 0.1s;
+
+        &:hover {
+            background: var(--timeline-thumb-hover);
+            transform: scale(1.1);
+        }
+    }
+
+    &::-moz-range-track {
+        height: var(--timeline-height);
+        border-radius: var(--timeline-radius);
+        background: var(--timeline-track);
+    }
+
+    &::-moz-range-thumb {
+        width: var(--timeline-thumb-size);
+        height: var(--timeline-thumb-size);
+        border-radius: 50%;
+        background: var(--timeline-thumb-color);
+        border: 2px solid var(--timeline-thumb-border);
+        cursor: pointer;
+        transition: background 0.15s, transform 0.1s;
+
+        &:hover {
+            background: var(--timeline-thumb-hover);
+            transform: scale(1.1);
+        }
+    }
+
+    &::-ms-track {
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+        height: var(--timeline-height);
+    }
+
+    &::-ms-fill-upper {
+        background: var(--timeline-track);
+        border-radius: var(--timeline-radius);
+    }
+
+    &::-ms-thumb {
+        width: var(--timeline-thumb-size);
+        height: var(--timeline-thumb-size);
+        border-radius: 50%;
+        background: var(--timeline-thumb-color);
+        border: 2px solid var(--timeline-thumb-border);
+        cursor: pointer;
+    }
+}
