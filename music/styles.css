@@ -88,5 +88,10 @@ body {
     .track {
         margin: 20px;
         flex: 100%;
+
+        img {
+            width: 200px;
+            border-radius: 20px;
+        }
     }
 }
