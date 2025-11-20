@@ -94,4 +94,8 @@ body {
             border-radius: 20px;
         }
     }
+
+    .current-time, .total-time {
+        min-width: 30px;
+    }
 }
