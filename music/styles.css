@@ -34,7 +34,9 @@ body {
     background-color: transparent;
     justify-self: start;
     text-align: start;
+
     color: var(--color-text);
+    cursor: pointer;
 }
 
 #cat-with-guitar-image {

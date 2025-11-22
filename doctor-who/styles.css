@@ -1,5 +1,10 @@
+:root {
+    --accent: rgb(236, 238, 243);
+    --bg: #779fd8;
+}
+
 html {
-    background-color: #779fd8;
+    background-color: var(--bg);
 }
 
 body {
@@ -9,6 +14,15 @@ body {
     gap: 10px;
 }
 
+.back-button {
+    border-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    cursor: pointer;
+    left: 0px;
+    color: var(--accent);
+}
+
 #logo {
     width: 10vw;
 }
@@ -16,7 +30,7 @@ body {
 main {
     margin-top: 10px;
     width: calc(90% - 20px);
-    background-color: rgb(236, 238, 243);
+    background-color: var(--accent);
     padding: 20px;
     border-radius: 5px;
 }
