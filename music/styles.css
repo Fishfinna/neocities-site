@@ -11,6 +11,7 @@
     --color-black-key-active: #555555;
     --bg: #2b2b2b;
     --accent: #0a0a0a;
+    --pointer: url('../assets/art/cursors/pointer.png') 0 0, pointer;
 }
 
 @font-face {
