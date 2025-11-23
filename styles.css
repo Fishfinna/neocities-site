@@ -10,6 +10,7 @@
     --box-shadow-white: white;
     --box-shadow-blue: rgb(185, 218, 251);
     --shadow: rgba(53, 33, 55, 0.316);
+    --pointer: url('./assets/art/cursors/pointer.png') 0 0, pointer;
 }
 
 @font-face {
@@ -20,7 +21,9 @@
 body {
     padding: 0;
     margin: 0;
+    cursor: url('./assets/art/cursors/auto.png') 0 0, auto;
 }
+
 
 main {
     display: flex;
@@ -97,8 +100,7 @@ main {
     max-width: min(200px, 75vw);
     min-width: 100px;
     width: 100%;
-
-    cursor: pointer;
+    cursor: var(--pointer);
     border: none;
     padding: 20px;
     border-radius: 10px;
@@ -142,7 +144,7 @@ div.unmute {
     align-self: center;
     background-color: transparent;
     border: none;
-    cursor: pointer;
+    cursor: var(--pointer);
 
     img {
         width: 40px;
