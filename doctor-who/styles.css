@@ -5,6 +5,7 @@
 
 html {
     background-color: var(--bg);
+    cursor: url('../assets/art/cursors/auto.png') 0 0, auto;
 }
 
 body {
