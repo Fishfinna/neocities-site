@@ -136,3 +136,8 @@ button.back-button {
     position: absolute;
     border-radius: 20px;
 }
+
+#dino-pet {
+    width: 85px;
+    image-rendering: pixelated;
+}
