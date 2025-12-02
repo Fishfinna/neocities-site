@@ -67,6 +67,19 @@ body {
 
 .audio-toggle {
     cursor: pointer;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18), 0 0 0 4px rgba(37, 99, 235, 0.18);
+    }
+
+    &:active {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    }
+
+    &:not(:active) {
+        animation: img-bounce 2s cubic-bezier(.25, .8, .35, 1);
+    }
 }
 
 .tracks-container {
@@ -96,10 +109,45 @@ body {
         img {
             width: 200px;
             border-radius: 20px;
+            cursor: pointer;
+            transition:
+                transform 180ms cubic-bezier(.25, .7, .3, 1),
+                box-shadow 200ms ease;
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18), 0 0 0 4px rgba(37, 99, 235, 0.18);
+            }
+
+            &:active {
+                transform: scale(0.92);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+            }
+
+            &:not(:active) {
+                animation: img-bounce 260ms cubic-bezier(.25, .8, .35, 1);
+            }
         }
+
     }
 
     .current-time, .total-time {
         min-width: 30px;
+    }
+}
+
+
+
+@keyframes img-bounce {
+    0% {
+        transform: scale(0.92);
+    }
+
+    55% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

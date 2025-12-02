@@ -74,6 +74,7 @@ cat.addEventListener("click", () => {
 const playButtons = document.querySelectorAll(
   ".material-symbols-rounded.audio-toggle"
 );
+const coverImages = document.querySelectorAll(".track img");
 const audioElements = document.querySelectorAll("audio");
 const timelines = document.querySelectorAll(".timeline");
 const currentTimes = document.querySelectorAll(".current-time");
@@ -87,6 +88,7 @@ function formatTime(seconds) {
 
 audioElements.forEach((audio, i) => {
   const btn = playButtons[i];
+  const coverImage = coverImages[i];
   const timeline = timelines[i];
   const currentTimeLabel = currentTimes[i];
   const totalTimeLabel = totalTimes[i];
@@ -96,29 +98,38 @@ audioElements.forEach((audio, i) => {
     totalTimeLabel.textContent = formatTime(audio.duration);
   });
 
-  // Update timeline as the audio plays
   audio.addEventListener("timeupdate", () => {
     timeline.value = audio.currentTime;
     currentTimeLabel.textContent = formatTime(audio.currentTime);
   });
 
-  // Seek when user drags timeline
   timeline.addEventListener("input", () => {
     audio.currentTime = timeline.value;
     currentTimeLabel.textContent = formatTime(audio.currentTime);
   });
 
-  // Play/pause button
   btn.addEventListener("click", () => {
-    const playText = "play_arrow";
-    const pauseText = "pause";
     if (audio.paused) {
       audio.play();
-      btn.textContent = pauseText;
     } else {
       audio.pause();
-      btn.textContent = playText;
     }
+  });
+
+  coverImage.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  audio.addEventListener("play", () => {
+    btn.textContent = "pause";
+  });
+
+  audio.addEventListener("pause", () => {
+    btn.textContent = "play_arrow";
   });
 
   audio.addEventListener("ended", () => {
