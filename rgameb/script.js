@@ -1,6 +1,15 @@
+function generateRandomHexCode() {
+  const hexChars = "0123456789ABCDEF";
+  let hex = "";
+  while (hex.length < 6) {
+    hex += hexChars[Math.floor(Math.random() * hexChars.length)];
+  }
+  return hex;
+}
+
 const color = document.getElementById("color");
 color.addEventListener("click", () => {
-  color.style.backgroundColor = `#${Math.floor(
-    Math.random() * 10
-  )}0${Math.floor(Math.random() * 10)}000`;
+  const newColor = generateRandomHexCode();
+  color.style.backgroundColor = `#${newColor}`;
+  console.log(newColor);
 });
