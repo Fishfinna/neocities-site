@@ -6,26 +6,28 @@ const context = new (window.AudioContext || window.webkitAudioContext)();
 const cat = document.getElementById("cat-with-guitar-image");
 let catRotation = 0;
 
+const audioCache = {};
+
 async function playNote(element) {
   const detune = parseInt(element.dataset.octave) || 0;
   const note =
     element.className.replaceAll("piano-key ", "").replaceAll("-sharp", "%23") +
     ".wav";
-  const noteSrc = `../../assets/audio/effects/${note}`;
-  const response = await fetch(noteSrc);
-  const arrayBuffer = await response.arrayBuffer();
-  const audioBuffer = await context.decodeAudioData(arrayBuffer);
-  const source = context.createBufferSource();
-  source.buffer = audioBuffer;
+  const noteSrc = `https://fishfinna.github.io/neocities-site/assets/audio/effects/${note}`;
+
+  if (!audioCache[note]) {
+    audioCache[note] = new Audio(noteSrc);
+  }
+
+  const audioClone = audioCache[note].cloneNode();
+
   let step = 20;
   catRotation += step;
   cat.style.transform = `rotateY(${catRotation}deg) rotateX(${
     catRotation * 0.3
   }deg)`;
 
-  source.detune.value = detune * 1200;
-  source.connect(context.destination);
-  source.start();
+  audioClone.play().catch((err) => console.error(err));
 }
 
 function attachKeyEvents(key) {

@@ -3,7 +3,8 @@ window.addEventListener("load", () => {
   const ctx = canvas.getContext("2d");
   const deviceButtons = document.querySelectorAll('[class$="device-button"]');
   const muted = false;
-  const noteSrc = "../assets/audio/effects/a.wav";
+  const noteSrc =
+    "https://fishfinna.github.io/neocities-site/assets/audio/effects/a.wav";
   const audio = new Audio(noteSrc);
   audio.volume = 0.25;
 

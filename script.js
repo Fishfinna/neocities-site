@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
 
   buttons.forEach((button) => {
     button.addEventListener("mouseenter", () => {
-      const noteSrc = `./assets/audio/effects/${getNote()}.wav`;
+      const noteSrc = `https://fishfinna.github.io/neocities-site/assets/audio/effects/${getNote()}.wav`;
       const audio = new Audio(noteSrc);
       if (!muted)
         audio.play().catch((err) => {
