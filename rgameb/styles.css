@@ -1,5 +1,12 @@
+:root {
+    --pointer: url('../assets/art/cursors/pointer.png') 0 0, pointer;
+}
+
 body {
     background: #2b2b2b;
+    color: #fcf0f0;
+    cursor: url('../assets/art/cursors/auto.png') 0 0, auto;
+
 }
 
 .game {
@@ -8,6 +15,16 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 50vh;
+}
+
+.back-button {
+    border-color: transparent;
+    background-color: transparent;
+    justify-self: start;
+    text-align: start;
+
+    color: var(--color-text);
+    cursor: var(--pointer);
 }
 
 #color {
