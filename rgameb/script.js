@@ -23,3 +23,10 @@ color.addEventListener("click", () => {
     if (opacity > 1) opacity = 1;
   });
 });
+
+const form = document.getElementById("colorForm");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  console.log(formData);
+});
