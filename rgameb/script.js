@@ -9,7 +9,7 @@ function generateRandomHexCode() {
 
 const color = document.getElementById("color");
 
-color.addEventListener("click", () => {
+const changeColor = () => {
   const newColor = "#" + generateRandomHexCode();
   color.style.backgroundColor = newColor;
 
@@ -22,7 +22,10 @@ color.addEventListener("click", () => {
     opacity += 0.1;
     if (opacity > 1) opacity = 1;
   });
-});
+};
+
+color.addEventListener("click", changeColor);
+window.addEventListener("load", changeColor);
 
 const form = document.getElementById("colorForm");
 form.addEventListener("submit", (e) => {
