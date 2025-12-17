@@ -8,9 +8,10 @@ function generateRandomHexCode() {
 }
 
 const color = document.getElementById("color");
+const form = document.getElementById("colorForm");
+const guessInput = form.querySelector('input[name="color-guess"]');
 
-const changeColor = () => {
-  const newColor = "#" + generateRandomHexCode();
+const changeColor = (newColor) => {
   color.style.backgroundColor = newColor;
 
   const blobPaths = document.querySelectorAll("#visual path");
@@ -24,12 +25,25 @@ const changeColor = () => {
   });
 };
 
-color.addEventListener("click", changeColor);
-window.addEventListener("load", changeColor);
+color.addEventListener("click", () => {
+  const newColor = "#" + generateRandomHexCode();
+  color.value = newColor;
+  changeColor(newColor);
+});
 
-const form = document.getElementById("colorForm");
+window.addEventListener("load", () => {
+  const newColor = "#" + generateRandomHexCode();
+  color.value = newColor;
+  changeColor(newColor);
+});
+
+guessInput.addEventListener("input", () => {
+  let value = guessInput.value.replace(/#/g, "").toUpperCase();
+  guessInput.value = value ? `#${value}` : "";
+});
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(form);
-  console.log(formData);
+  console.log(formData.get("color-guess"));
 });

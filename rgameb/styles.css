@@ -1,12 +1,15 @@
 :root {
     --pointer: url('../assets/art/cursors/pointer.png') 0 0, pointer;
+    --color-bg: #2b2b2b;
+    --color-text: #fcf0f0;
+    --color-border: #404040;
+    --color-shadow: rgba(99, 99, 99, 0.2);
 }
 
 body {
-    background: #2b2b2b;
-    color: #fcf0f0;
+    background: var(--color-bg);
+    color: var(--color-text);
     cursor: url('../assets/art/cursors/auto.png') 0 0, auto;
-
 }
 
 .game {
@@ -31,14 +34,21 @@ body {
     width: 250px;
     height: 250px;
     border-radius: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: var(--color-shadow) 0px 2px 8px 0px;
     margin: 25px;
+}
+
+#colorForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 input {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
-    background-color: #2b2b2b;
-    border: solid 2px #404040;
+    background-color: var(--color-bg);
+    border: solid 2px var(--color-border);
+    color: var(--color-text);
 }
