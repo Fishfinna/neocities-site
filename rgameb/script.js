@@ -47,4 +47,7 @@ form.addEventListener("submit", (e) => {
   const formData = new FormData(form);
   console.log(formData.get("color-guess"));
   guessInput.value = "";
+  const newColor = "#" + generateRandomHexCode();
+  color.value = newColor;
+  changeColor(newColor);
 });
