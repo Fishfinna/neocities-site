@@ -7,11 +7,37 @@ function generateRandomHexCode() {
   return hex;
 }
 
+function hexToRgb(hex) {
+  return {
+    r: parseInt(hex.slice(1, 3), 16),
+    g: parseInt(hex.slice(3, 5), 16),
+    b: parseInt(hex.slice(5, 7), 16),
+  };
+}
+
+function colorClosenessPercent(guess, actual) {
+  const g = hexToRgb(guess);
+  const a = hexToRgb(actual);
+
+  const distance = Math.sqrt(
+    Math.pow(g.r - a.r, 2) + Math.pow(g.g - a.g, 2) + Math.pow(g.b - a.b, 2)
+  );
+
+  const maxDistance = Math.sqrt(3 * Math.pow(255, 2));
+  const percent = Math.max(0, 100 - (distance / maxDistance) * 100);
+
+  return Math.round(percent);
+}
+
 const color = document.getElementById("color");
 const form = document.getElementById("colorForm");
 const guessInput = form.querySelector('input[name="color-guess"]');
+const resultMessage = document.getElementById("resultMessage");
+
+let currentColor = "";
 
 const changeColor = (newColor) => {
+  currentColor = newColor;
   color.style.backgroundColor = newColor;
 
   const blobPaths = document.querySelectorAll("#visual path");
@@ -28,6 +54,7 @@ const changeColor = (newColor) => {
 color.addEventListener("click", () => {
   const newColor = "#" + generateRandomHexCode();
   color.value = newColor;
+  resultMessage.textContent = "";
   changeColor(newColor);
 });
 
@@ -44,10 +71,20 @@ guessInput.addEventListener("input", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const formData = new FormData(form);
-  console.log(formData.get("color-guess"));
+
+  const guess = guessInput.value;
+
+  if (!/^#[0-9A-F]{6}$/i.test(guess)) {
+    resultMessage.textContent = "Please enter a valid hex color.";
+    return;
+  }
+
+  const percent = colorClosenessPercent(guess, currentColor);
+
+  resultMessage.textContent = `Answer: ${currentColor} — You were ${percent}% close`;
+
   guessInput.value = "";
+
   const newColor = "#" + generateRandomHexCode();
-  color.value = newColor;
   changeColor(newColor);
 });
