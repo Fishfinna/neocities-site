@@ -75,13 +75,13 @@ form.addEventListener("submit", (e) => {
   const guess = guessInput.value;
 
   if (!/^#[0-9A-F]{6}$/i.test(guess)) {
-    resultMessage.textContent = "Please enter a valid hex color.";
+    resultMessage.textContent = "Please enter a valid 6-digit hex color.";
     return;
   }
 
   const percent = colorClosenessPercent(guess, currentColor);
 
-  resultMessage.textContent = `Answer: ${currentColor} — You were ${percent}% close`;
+  resultMessage.textContent = `Answer: ${currentColor} — ${percent}% match`;
 
   guessInput.value = "";
 
