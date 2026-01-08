@@ -51,13 +51,6 @@ const changeColor = (newColor) => {
   });
 };
 
-color.addEventListener("click", () => {
-  const newColor = "#" + generateRandomHexCode();
-  color.value = newColor;
-  resultMessage.textContent = "";
-  changeColor(newColor);
-});
-
 window.addEventListener("load", () => {
   const newColor = "#" + generateRandomHexCode();
   color.value = newColor;
