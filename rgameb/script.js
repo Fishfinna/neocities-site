@@ -60,6 +60,8 @@ window.addEventListener("load", () => {
 guessInput.addEventListener("input", () => {
   let value = guessInput.value.replace(/#/g, "").toUpperCase();
   guessInput.value = value ? `#${value}` : "";
+  const guessCount = guessInput.value.length;
+  guessInput.style.color = guessCount < 7 || guessCount > 7 ? "red" : "green";
 });
 
 form.addEventListener("submit", (e) => {
