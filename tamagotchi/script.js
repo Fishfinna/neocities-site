@@ -47,3 +47,8 @@ if (startButton.getAttribute("dev") === "on") {
 } else {
   startButton.addEventListener("click", startGame);
 }
+
+const leftButton = document.getElementByClass("left-device-button");
+const rightButton = document.getElementByClass("right-device-button");
+const middleButton = document.getElementByClass("middle-device-button");
+const buttons = [leftButton, rightButton, middleButton];
