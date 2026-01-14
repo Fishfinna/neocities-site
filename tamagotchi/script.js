@@ -48,7 +48,13 @@ if (startButton.getAttribute("dev") === "on") {
   startButton.addEventListener("click", startGame);
 }
 
-const leftButton = document.getElementByClass("left-device-button");
-const rightButton = document.getElementByClass("right-device-button");
-const middleButton = document.getElementByClass("middle-device-button");
+const leftButton = document.querySelector(".left-device-button");
+const rightButton = document.querySelector(".right-device-button");
+const middleButton = document.querySelector(".middle-device-button");
 const buttons = [leftButton, rightButton, middleButton];
+
+for (let button of buttons) {
+  button.addEventListener("click", () => {
+    console.log("here");
+  });
+}
