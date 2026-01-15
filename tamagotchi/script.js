@@ -54,7 +54,7 @@ const middleButton = document.querySelector(".middle-device-button");
 const buttons = [leftButton, rightButton, middleButton];
 
 for (let button of buttons) {
-  button.addEventListener("click", () => {
-    console.log("here");
+  button.addEventListener("click", (event) => {
+    console.log(event.currentTarget.classList.value);
   });
 }
