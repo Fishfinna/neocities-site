@@ -1,7 +1,13 @@
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
+  const pet = document.getElementById("pet");
+  const startButton = document.getElementById("start");
+
+  const leftButton = document.querySelector(".left-device-button");
+  const rightButton = document.querySelector(".right-device-button");
+  const middleButton = document.querySelector(".middle-device-button");
   const deviceButtons = document.querySelectorAll('[class$="device-button"]');
+
   const muted = false;
   const noteSrc =
     "https://fishfinna.github.io/neocities-site/assets/audio/effects/a.wav";
@@ -12,49 +18,55 @@ window.addEventListener("load", () => {
     canvas.width = window.innerWidth / 2;
     canvas.height = window.innerHeight / 2;
   }
+
   window.addEventListener("resize", resizeCanvas);
 
-  const PAUSE_DURATION = 2000;
+  let petX = 0;
+  const MOVE_STEP = 30;
 
-  startButton.addEventListener("click", () => {
-    canvas.classList.add("active");
-    startButton.style.display = "none";
+  function updatePetPosition() {
+    pet.style.transform = `translateX(${petX}px)`;
+  }
 
-    resizeCanvas();
-    registerCreatureClickHandler();
-    requestAnimationFrame(loop);
+  leftButton.addEventListener("click", () => {
+    petX -= MOVE_STEP;
+    updatePetPosition();
+  });
+
+  rightButton.addEventListener("click", () => {
+    petX += MOVE_STEP;
+    updatePetPosition();
+  });
+
+  middleButton.addEventListener("click", () => {
+    if (petX > 0) {
+      petX = Math.max(0, petX - MOVE_STEP);
+    } else if (petX < 0) {
+      petX = Math.min(0, petX + MOVE_STEP);
+    }
+    updatePetPosition();
   });
 
   deviceButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      if (!muted)
+      if (!muted) {
+        audio.currentTime = 0;
         audio.play().catch((err) => {
           console.error("Audio play failed:", err);
         });
+      }
     });
   });
+
+  function startGame() {
+    canvas.classList.add("active");
+    startButton.style.display = "none";
+    resizeCanvas();
+  }
+
+  if (startButton.getAttribute("dev") === "on") {
+    startGame();
+  } else {
+    startButton.addEventListener("click", startGame);
+  }
 });
-
-const startButton = document.getElementById("start");
-
-function startGame() {
-  canvas.classList.add("active");
-  startButton.style.display = "none";
-}
-
-if (startButton.getAttribute("dev") === "on") {
-  startGame();
-} else {
-  startButton.addEventListener("click", startGame);
-}
-
-const leftButton = document.querySelector(".left-device-button");
-const rightButton = document.querySelector(".right-device-button");
-const middleButton = document.querySelector(".middle-device-button");
-const buttons = [leftButton, rightButton, middleButton];
-
-for (let button of buttons) {
-  button.addEventListener("click", (event) => {
-    console.log(event.currentTarget.classList.value);
-  });
-}
