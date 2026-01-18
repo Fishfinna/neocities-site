@@ -41,7 +41,6 @@ button.back-button {
     width: 600px;
     justify-self: center;
     align-self: center;
-    margin-top: 30px;
 
 
     @media (max-width: 600px) {
@@ -71,10 +70,10 @@ button.back-button {
             border: none;
             image-rendering: pixelated;
             width: 30px;
-
             position: relative;
-            top: -6.5px;
-            margin: 3.5px;
+            top: -8px;
+            margin: 2px;
+
         }
 
         .middle-device-button {
@@ -93,12 +92,11 @@ button.back-button {
 
         :hover {
             cursor: pointer;
-            filter: brightness(95%);
+            filter: brightness(90%);
         }
 
         :active {
             cursor: pointer;
-            filter: brightness(90%);
             transform: scale(1.05);
         }
     }
@@ -131,8 +129,8 @@ button.back-button {
 #canvas {
     display: block;
     margin-top: 25px;
-    width: 160px;
-    height: 160px;
+    width: 165px;
+    height: 165px;
     position: absolute;
     border-radius: 20px;
 }
