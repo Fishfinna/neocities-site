@@ -20,7 +20,7 @@ function colorClosenessPercent(guess, actual) {
   const a = hexToRgb(actual);
 
   const distance = Math.sqrt(
-    Math.pow(g.r - a.r, 2) + Math.pow(g.g - a.g, 2) + Math.pow(g.b - a.b, 2)
+    Math.pow(g.r - a.r, 2) + Math.pow(g.g - a.g, 2) + Math.pow(g.b - a.b, 2),
   );
 
   const maxDistance = Math.sqrt(3 * Math.pow(255, 2));
@@ -77,6 +77,12 @@ form.addEventListener("submit", (e) => {
   const percent = colorClosenessPercent(guess, currentColor);
 
   resultMessage.textContent = `Answer: ${currentColor} — ${percent}% match`;
+
+  if (percent > 75) {
+    resultMessage.style.color = "green";
+  } else {
+    resultMessage.style.color = "black";
+  }
 
   guessInput.value = "";
 
