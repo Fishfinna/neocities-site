@@ -19,6 +19,10 @@ body {
     cursor: url('../assets/art/cursors/auto.png') 0 0, auto;
 }
 
+p {
+    padding: 20px;
+}
+
 .game {
     display: flex;
     flex-direction: column;
@@ -60,4 +64,24 @@ input {
     background-color: var(--color-bg);
     border: solid 2px var(--color-border);
     color: var(--color-text);
+}
+
+button.how-to-play {
+    background-color: #e9e4e4;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+
+    &:hover {
+        background-color: rgb(211, 211, 215);
+        cursor: pointer;
+    }
+}
+
+.how-to {
+    h1 {
+        text-align: center;
+        color: #c9859a;
+        font-size: 38pt;
+    }
 }
