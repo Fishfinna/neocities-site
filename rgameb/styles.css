@@ -19,10 +19,6 @@ body {
     cursor: url('../assets/art/cursors/auto.png') 0 0, auto;
 }
 
-p {
-    padding: 20px;
-}
-
 .game {
     display: flex;
     flex-direction: column;
@@ -66,22 +62,36 @@ input {
     color: var(--color-text);
 }
 
-button.how-to-play {
-    background-color: #e9e4e4;
-    border: none;
-    border-radius: 20px;
-    padding: 20px;
+a.how-to-play {
+    color: #c9859a;
+    text-decoration: none;
 
     &:hover {
-        background-color: rgb(211, 211, 215);
         cursor: pointer;
+        text-decoration: underline dotted;
     }
 }
 
 .how-to {
+    padding: 20px;
+
     h1 {
         text-align: center;
         color: #c9859a;
         font-size: 38pt;
+    }
+
+    h2 {
+        &.red {
+            color: rgb(210, 93, 93);
+        }
+
+        &.green {
+            color: rgb(122, 165, 139);
+        }
+
+        &.blue {
+            color: rgb(148, 148, 211)
+        }
     }
 }
