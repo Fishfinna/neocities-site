@@ -31,6 +31,16 @@ body {
     cursor: url('../assets/art/cursors/auto.png') 0 0, auto;
 }
 
+a {
+    text-decoration: underline dotted;
+    color: var(--color-text);
+
+    &:hover {
+        color: var(--color-white);
+        text-decoration: underline solid;
+    }
+}
+
 .back-button {
     border-color: transparent;
     background-color: transparent;
