@@ -31,7 +31,8 @@ main {
     font-family: pix;
     font-size: 1.3rem;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     flex-wrap: wrap;
     background-image: url("./assets/art/background.png");
     background-repeat: repeat;
